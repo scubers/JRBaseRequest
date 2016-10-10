@@ -13,6 +13,8 @@
 		09ED160A1DAB792C00CEB7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ED16081DAB792C00CEB7FE /* Main.storyboard */; };
 		09ED160C1DAB792C00CEB7FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09ED160B1DAB792C00CEB7FE /* Assets.xcassets */; };
 		09ED160F1DAB792C00CEB7FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ED160D1DAB792C00CEB7FE /* LaunchScreen.storyboard */; };
+		09ED161C1DAB794300CEB7FE /* JRBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED16181DAB794300CEB7FE /* JRBaseRequest.m */; };
+		09ED161D1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED161B1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,11 @@
 		09ED160B1DAB792C00CEB7FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09ED160E1DAB792C00CEB7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09ED16101DAB792C00CEB7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09ED16171DAB794300CEB7FE /* JRBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRBaseRequest.h; sourceTree = "<group>"; };
+		09ED16181DAB794300CEB7FE /* JRBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRBaseRequest.m; sourceTree = "<group>"; };
+		09ED16191DAB794300CEB7FE /* JRRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRequestHandler.h; sourceTree = "<group>"; };
+		09ED161A1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+JRCancellable.h"; sourceTree = "<group>"; };
+		09ED161B1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+JRCancellable.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,7 @@
 		09ED15FE1DAB792C00CEB7FE /* JRBaseRequest */ = {
 			isa = PBXGroup;
 			children = (
+				09ED16161DAB794300CEB7FE /* classes */,
 				09ED16021DAB792C00CEB7FE /* AppDelegate.h */,
 				09ED16031DAB792C00CEB7FE /* AppDelegate.m */,
 				09ED16051DAB792C00CEB7FE /* ViewController.h */,
@@ -77,6 +85,18 @@
 				09ED16001DAB792C00CEB7FE /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		09ED16161DAB794300CEB7FE /* classes */ = {
+			isa = PBXGroup;
+			children = (
+				09ED16171DAB794300CEB7FE /* JRBaseRequest.h */,
+				09ED16181DAB794300CEB7FE /* JRBaseRequest.m */,
+				09ED16191DAB794300CEB7FE /* JRRequestHandler.h */,
+				09ED161A1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.h */,
+				09ED161B1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m */,
+			);
+			path = classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +171,8 @@
 			files = (
 				09ED16071DAB792C00CEB7FE /* ViewController.m in Sources */,
 				09ED16041DAB792C00CEB7FE /* AppDelegate.m in Sources */,
+				09ED161C1DAB794300CEB7FE /* JRBaseRequest.m in Sources */,
+				09ED161D1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m in Sources */,
 				09ED16011DAB792C00CEB7FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
