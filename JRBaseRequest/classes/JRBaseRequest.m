@@ -100,23 +100,21 @@
 
 - (id<JRCancellable>)startRequestSuccess:(void (^)(id<JRCancellable>, id))success failure:(void (^)(id<JRCancellable>, NSError *))failure {
     NSString *finalUrl = self.url;
-    if (self.urlParams) {
-        if (self.urlParams.count) {
-            // 获取参数
-            NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{[^\\{^\\}]*\\}"
-                                                                                   options:NSRegularExpressionCaseInsensitive
-                                                                                     error:nil];
-            
-            NSMutableString *modifiedurl = [NSMutableString stringWithFormat:@"%@", finalUrl];
-            NSTextCheckingResult *ret;
-            NSMutableArray *array = [self.urlParams mutableCopy];
-            while ((ret=[regex firstMatchInString:modifiedurl options:0 range:NSMakeRange(0, modifiedurl.length)])) {
-                [modifiedurl replaceCharactersInRange:ret.range
-                                           withString:[NSString stringWithFormat:@"%@", array.firstObject]];
-                [array removeObjectAtIndex:0];
-            };
-            finalUrl = modifiedurl;
-        }
+    if (self.urlParams.count) {
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{[^\\{^\\}]*\\}"
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:nil];
+        
+        // 获取参数
+        NSMutableString *modifiedurl = [NSMutableString stringWithFormat:@"%@", finalUrl];
+        NSTextCheckingResult *ret;
+        NSMutableArray *array = [self.urlParams mutableCopy];
+        while ((ret=[regex firstMatchInString:modifiedurl options:0 range:NSMakeRange(0, modifiedurl.length)])) {
+            [modifiedurl replaceCharactersInRange:ret.range
+                                       withString:[NSString stringWithFormat:@"%@", array.firstObject]];
+            [array removeObjectAtIndex:0];
+        };
+        finalUrl = modifiedurl;
     }
     
     return [self.handler requestWithType:self.requestType url:finalUrl parameters:self.params progress:^(NSProgress *progress) {
@@ -171,6 +169,26 @@
 }
 
 #pragma mark - private method
+
+- (void)fixUrlParamsIntoUrl {
+    if (self.urlParams.count) {
+        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{[^\\{^\\}]*\\}"
+                                                                               options:NSRegularExpressionCaseInsensitive
+                                                                                 error:nil];
+        
+        // 获取参数
+        NSMutableString *modifiedurl = [NSMutableString stringWithFormat:@"%@", self.url];
+        NSTextCheckingResult *ret;
+        NSMutableArray *array = [self.urlParams mutableCopy];
+        while ((ret=[regex firstMatchInString:modifiedurl options:0 range:NSMakeRange(0, modifiedurl.length)])) {
+            [modifiedurl replaceCharactersInRange:ret.range
+                                       withString:[NSString stringWithFormat:@"%@", array.firstObject]];
+            [array removeObjectAtIndex:0];
+        };
+        self->_urlParams = nil;
+        self->_url = modifiedurl;
+    }
+}
 
 + (NSArray *)vaListToArray:(va_list)vaList {
     NSMutableArray *array = [NSMutableArray array];

@@ -90,9 +90,9 @@
 		09ED16161DAB794300CEB7FE /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				09ED16191DAB794300CEB7FE /* JRRequestHandler.h */,
 				09ED16171DAB794300CEB7FE /* JRBaseRequest.h */,
 				09ED16181DAB794300CEB7FE /* JRBaseRequest.m */,
-				09ED16191DAB794300CEB7FE /* JRRequestHandler.h */,
 				09ED161A1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.h */,
 				09ED161B1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m */,
 			);
@@ -130,6 +130,7 @@
 				TargetAttributes = {
 					09ED15FB1DAB792C00CEB7FE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 462J8VB29Y;
 					};
 				};
 			};
@@ -287,6 +288,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 462J8VB29Y;
 				INFOPLIST_FILE = JRBaseRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.JRBaseRequest;
@@ -298,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 462J8VB29Y;
 				INFOPLIST_FILE = JRBaseRequest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.JRBaseRequest;
@@ -324,6 +327,7 @@
 				09ED16151DAB792C00CEB7FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
