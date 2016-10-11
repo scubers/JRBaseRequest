@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "JRRequestHandler.h"
 
-#define NotNil(_str_) (_str_ ?: @"")
+#define JRAssertObjectsNotNil(...) _JRAssertObjectsNotNil(__VA_ARGS__, [NSError errorWithDomain:@"Not_Error" code:0 userInfo:nil])
 
-@class RACSignal;
+void _JRAssertObjectsNotNil(id first, ...);
 
 /**
  *  抽象类，不能直接使用，请子类化本类，然后实现 handler 的 getter 方法
@@ -21,8 +21,8 @@
     @protected
     id<JRRequestHandler> _handler;
     NSString *_url;
-    NSArray *_urlParams;
     NSDictionary *_params;
+    NSArray *_urlParams;
 }
 
 @property (nonatomic, strong, readonly) NSString *host;

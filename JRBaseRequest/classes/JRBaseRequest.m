@@ -8,6 +8,25 @@
 
 #import "JRBaseRequest.h"
 
+void _JRAssertObjectNotNil(id value, NSString *msg) {
+    if (!value) {
+        NSLog(@"%@", msg);
+        assert(NO);
+    }
+}
+
+void _JRAssertObjectsNotNil(id first, ...) {
+    _JRAssertObjectNotNil(first, @"function: [JRAssertObjectsNotNil] assert some nil value");
+    va_list list;
+    va_start(list, first);
+    id value = va_arg(list, id);
+    while (!([value isKindOfClass:[NSError class]] && [[value domain] isEqualToString:@"Not_Error"])) {
+        _JRAssertObjectNotNil(value, @"function: [JRAssertObjectsNotNil] assert some nil value");
+        value = va_arg(list, id);
+    }
+    va_end(list);
+}
+
 @interface JRBaseRequest ()
 
 
