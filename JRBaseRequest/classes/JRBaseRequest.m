@@ -21,6 +21,7 @@
     req->_params = params;
     [req setRequestType:type];
     req->_urlParams = paramArray;
+    [req fixUrlParamsIntoUrl];// 处理restful 参数
     return req;
 }
 
@@ -99,25 +100,8 @@
 #pragma mark - request
 
 - (id<JRCancellable>)startRequestSuccess:(void (^)(id<JRCancellable>, id))success failure:(void (^)(id<JRCancellable>, NSError *))failure {
-    NSString *finalUrl = self.url;
-    if (self.urlParams.count) {
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\{[^\\{^\\}]*\\}"
-                                                                               options:NSRegularExpressionCaseInsensitive
-                                                                                 error:nil];
-        
-        // 获取参数
-        NSMutableString *modifiedurl = [NSMutableString stringWithFormat:@"%@", finalUrl];
-        NSTextCheckingResult *ret;
-        NSMutableArray *array = [self.urlParams mutableCopy];
-        while ((ret=[regex firstMatchInString:modifiedurl options:0 range:NSMakeRange(0, modifiedurl.length)])) {
-            [modifiedurl replaceCharactersInRange:ret.range
-                                       withString:[NSString stringWithFormat:@"%@", array.firstObject]];
-            [array removeObjectAtIndex:0];
-        };
-        finalUrl = modifiedurl;
-    }
     
-    return [self.handler requestWithType:self.requestType url:finalUrl parameters:self.params progress:^(NSProgress *progress) {
+    return [self.handler requestWithType:self.requestType url:self.url parameters:self.params progress:^(NSProgress *progress) {
         if (self.progressBlock) {
             self.progressBlock(progress);
         }
@@ -133,6 +117,7 @@
 }
 
 - (id<JRCancellable>)startUploadFileSuccess:(void (^)(id<JRCancellable>, id))success failure:(void (^)(id<JRCancellable>, NSError *))failure {
+    
     return [self.handler uploadFileWithType:self.requestType url:self.url parameters:self.params constructingBodyBlock:^(id<JRMultipartFormData> formData) {
         if (self.constructingBodyBlock) {
             self.constructingBodyBlock(formData);
