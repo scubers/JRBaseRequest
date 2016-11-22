@@ -187,7 +187,9 @@ void _JRAssertObjectsNotNil(id first, ...) {
         while ((ret=[regex firstMatchInString:modifiedurl options:0 range:NSMakeRange(0, modifiedurl.length)])) {
             [modifiedurl replaceCharactersInRange:ret.range
                                        withString:[NSString stringWithFormat:@"%@", array.firstObject]];
-            [array removeObjectAtIndex:0];
+            if (array.count) {
+                [array removeObjectAtIndex:0];
+            }
         };
         self->_urlParams = nil;
         self->_url = modifiedurl;
