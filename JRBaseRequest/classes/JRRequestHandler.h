@@ -56,6 +56,14 @@ typedef NS_ENUM(NSUInteger, JRRequestType) {
                                 success:(void (^)(id<JRCancellable> task, id responseObject))success
                                 failure:(void (^)(id<JRCancellable> task, NSError *error))failure;
 
+
+/**
+ 如需要移除某个key，请设置 @{key : [NSNull null]}
+
+ @param headers headers description
+ */
+- (void)setupHeaders:(NSDictionary *)headers;
+
 @end
 
 
