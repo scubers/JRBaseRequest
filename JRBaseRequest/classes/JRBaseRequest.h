@@ -49,25 +49,25 @@ void _JRAssertObjectsNotNil(id first, ...);
 /**
  *  restful 风格请求 url格式 /api/v1/{userId}/page     参数对应大括号内的参数，参数最后需要插入nil作为结束标识
  *
- *  @param url
+ *  @param url description
  */
 + (instancetype)POST:(NSString *)url, ...;
 /**
  *  restful 风格请求 url格式 /api/v1/{userId}/page     参数对应大括号内的参数，参数最后需要插入nil作为结束标识
  *
- *  @param url
+ *  @param url description
  */
 + (instancetype)GET:(NSString *)url, ...;
 /**
  *  restful 风格请求 url格式 /api/v1/{userId}/page     参数对应大括号内的参数，参数最后需要插入nil作为结束标识
  *
- *  @param url
+ *  @param url description
  */
 + (instancetype)PUT:(NSString *)url, ...;
 /**
  *  restful 风格请求 url格式 /api/v1/{userId}/page     参数对应大括号内的参数，参数最后需要插入nil作为结束标识
  *
- *  @param url
+ *  @param url description
  */
 + (instancetype)DELETE:(NSString *)url, ...;
 
@@ -88,7 +88,7 @@ void _JRAssertObjectsNotNil(id first, ...);
 /**
  *  设置进度block
  *
- *  @param progressBlock
+ *  @param progressBlock description
  *
  */
 - (instancetype)progressBlock:(void (^)(NSProgress *progress))progressBlock;
@@ -96,7 +96,7 @@ void _JRAssertObjectsNotNil(id first, ...);
 /**
  *  设置参数
  *
- *  @param parameters
+ *  @param parameters description
  */
 - (instancetype)parameters:(NSDictionary *)parameters;
 
