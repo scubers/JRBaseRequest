@@ -39,6 +39,16 @@ void _JRAssertObjectsNotNil(id first, ...);
 @property (nonatomic, copy  , readonly) void (^constructingBodyBlock)(id<JRMultipartFormData> formData);
 
 
+/**
+ 可变参数为restful风格的url参数
+
+ @param type type description
+ @param url url description
+ @param params params body中的参数 不能为空
+ @return return value description
+ */
++ (instancetype)_requestWithType:(JRRequestType)type params:(NSDictionary *)params url:(NSString *)url, ...;
+
 #pragma mark - 普通请求风格创建请求
 + (instancetype)POST:(NSString *)url params:(NSDictionary *)params;
 + (instancetype)GET:(NSString *)url params:(NSDictionary *)params;
