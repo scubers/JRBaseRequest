@@ -107,9 +107,22 @@ void _JRAssertObjectsNotNil(id first, ...);
 
 #pragma mark - subclass override
 
+
+/**
+ 子类提供处理器
+
+ @return return value description
+ */
 - (id<JRRequestHandler>)getHandler;
 
 
+/**
+ 处理入参时候的url，返回处理后的url
+
+ @param oldUrl oldUrl description
+ @return return value description
+ */
+- (NSString *)resolveUrl:(NSString *)oldUrl;
 
 @end
 

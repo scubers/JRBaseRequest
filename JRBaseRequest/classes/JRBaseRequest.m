@@ -36,7 +36,7 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 + (instancetype)requestWithType:(JRRequestType)type url:(NSString *)url params:(NSDictionary *)params paramArray:(NSArray *)paramArray {
     JRBaseRequest *req = [[self alloc] init];
-    req->_url = url;
+    req->_url = [req resolveUrl:url];
     req->_params = params;
     [req setRequestType:type];
     req->_urlParams = paramArray;
@@ -170,6 +170,10 @@ void _JRAssertObjectsNotNil(id first, ...) {
 - (id<JRRequestHandler>)getHandler {
     NSAssert(NO, @"在子类中实现本方法:%s", __PRETTY_FUNCTION__);
     return nil;
+}
+
+- (NSString *)resolveUrl:(NSString *)oldUrl {
+    return _url;
 }
 
 #pragma mark - private method
