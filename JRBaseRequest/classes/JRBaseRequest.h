@@ -47,7 +47,7 @@ void _JRAssertObjectsNotNil(id first, ...);
  @param params params body中的参数 不能为空
  @return return value description
  */
-+ (instancetype)_requestWithType:(JRRequestType)type params:(NSDictionary *)params url:(NSString *)url, ...;
++ (instancetype)_requestWithType:(JRRequestType)type url:(NSString *)url vaList:(va_list)vaList params:(NSDictionary *)params;
 
 #pragma mark - 普通请求风格创建请求
 + (instancetype)POST:(NSString *)url params:(NSDictionary *)params;

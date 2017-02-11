@@ -34,11 +34,8 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 @implementation JRBaseRequest
 
-+ (instancetype)_requestWithType:(JRRequestType)type params:(NSDictionary *)params url:(NSString *)url, ... {
-    va_list list;
-    va_start(list, url);
-    NSArray *array = [self vaListToArray:list];
-    va_end(list);
++ (instancetype)_requestWithType:(JRRequestType)type url:(NSString *)url vaList:(va_list)vaList params:(NSDictionary *)params {
+    NSArray *array = [self vaListToArray:vaList];
     return [self requestWithType:type url:url params:params paramArray:array];
 }
 
