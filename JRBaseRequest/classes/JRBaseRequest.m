@@ -178,7 +178,7 @@ void _JRAssertObjectsNotNil(id first, ...) {
 }
 
 - (NSString *)resolveUrl:(NSString *)oldUrl {
-    return _url;
+    return oldUrl;
 }
 
 #pragma mark - private method
