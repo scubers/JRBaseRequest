@@ -31,6 +31,6 @@ git push
 git tag -m "update podspec" $thisTag
 git push --tags
 
-pod lib lint
+pod lib lint $podSpecName --allow-warnings
 
-pod trunk push $podSpecName.podspec
+pod trunk push $podSpecName.podspec --allow-warnings
