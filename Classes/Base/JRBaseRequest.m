@@ -99,20 +99,20 @@ void _JRAssertObjectsNotNil(id first, ...) {
     return [self requestWithType:JRRequestTypeDELETE url:url params:nil paramArray:array];
 }
 
-#pragma mark - 文件上传
-
-+ (instancetype)uploadFileForUrl:(NSString *)url params:(NSDictionary *)params constructingBody:(void (^)(id<JRMultipartFormData>))constructingBodyBlock {
-    JRBaseRequest *req = [self POST:url params:params];
-    req->_constructingBodyBlock = [constructingBodyBlock copy];
-    req->_params = params;
-    req->_isUpload = YES;
-    return req;
-}
-
 #pragma mark - setting method
 
-- (instancetype)progressBlock:(void (^)(NSProgress *))progressBlock {
-    self->_progressBlock = [progressBlock copy];
+- (instancetype)constructingBody:(NSArray<JRUploadFormat *> *(^)())block {
+    self->_constructingBodyBlock = block;
+    return self;
+}
+
+- (instancetype)uploadProgress:(void (^)(NSProgress *))progressBlock {
+    self->_uploadProgressBlock = progressBlock;
+    return self;
+}
+
+- (instancetype)downloadProgress:(void (^)(NSProgress *))progressBlock {
+    self->_downloadProgressBlock = progressBlock;
     return self;
 }
 
@@ -123,42 +123,24 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 #pragma mark - request
 
-- (id<JRCancellable>)startRequestSuccess:(void (^)(id<JRCancellable>, id))success failure:(void (^)(id<JRCancellable>, NSError *))failure {
+- (id<JRRequestTask>)startRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure {
+    self->_successBlock = success;
+    self->_failureBlock = failure;
     
-    return [self.handler requestWithType:self.requestType url:self.url parameters:self.params progress:^(NSProgress *progress) {
-        if (self.progressBlock) {
-            self.progressBlock(progress);
-        }
-    } success:^(id<JRCancellable> task, id responseObject) {
-        if (success) {
-            success(task, responseObject);
-        }
-    } failure:^(id<JRCancellable> task, NSError *error) {
-        if (failure) {
-            failure(task, error);
-        }
-    }];
+    id<JRRequestTask> task = [self getTask];
+    [task jr_resume];
+    return task;
 }
 
-- (id<JRCancellable>)startUploadFileSuccess:(void (^)(id<JRCancellable>, id))success failure:(void (^)(id<JRCancellable>, NSError *))failure {
-    
-    return [self.handler uploadFileWithType:self.requestType url:self.url parameters:self.params constructingBodyBlock:^(id<JRMultipartFormData> formData) {
-        if (self.constructingBodyBlock) {
-            self.constructingBodyBlock(formData);
-        }
-    } progress:^(NSProgress *progress) {
-        if (self.progressBlock) {
-            self.progressBlock(progress);
-        }
-    } success:^(id<JRCancellable> task, id responseObject) {
-        if (success) {
-            success(task, responseObject);
-        }
-    } failure:^(id<JRCancellable> task, NSError *error) {
-        if (failure) {
-            failure(task, error);
-        }
-    }];
+- (id<JRRequestTask>)getTask {
+    return [self.handler taskWithType:self.requestType
+                                  url:self.url
+                           parameters:self.params
+                        uploadFormats:self.constructingBodyBlock ? self.constructingBodyBlock() : nil
+                       uploadProgress:self.uploadProgressBlock
+                     downloadProgress:self.downloadProgressBlock
+                              success:self.successBlock
+                              failure:self.failureBlock];
 }
 
 #pragma mark - getter

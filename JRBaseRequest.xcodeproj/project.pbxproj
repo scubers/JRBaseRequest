@@ -13,8 +13,12 @@
 		09ED160A1DAB792C00CEB7FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ED16081DAB792C00CEB7FE /* Main.storyboard */; };
 		09ED160C1DAB792C00CEB7FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09ED160B1DAB792C00CEB7FE /* Assets.xcassets */; };
 		09ED160F1DAB792C00CEB7FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09ED160D1DAB792C00CEB7FE /* LaunchScreen.storyboard */; };
-		09ED161C1DAB794300CEB7FE /* JRBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED16181DAB794300CEB7FE /* JRBaseRequest.m */; };
-		09ED161D1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m in Sources */ = {isa = PBXBuildFile; fileRef = 09ED161B1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m */; };
+		1C274DBBCD7E611F1EED9687 /* Pods_JRBaseRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A010F47BCABB3E809C147 /* Pods_JRBaseRequest.framework */; };
+		A83342EA1ED40FD200B4DE63 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = A83342E91ED40FD200B4DE63 /* test.png */; };
+		A83342EC1ED419D800B4DE63 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A83342EB1ED419D800B4DE63 /* test.jpg */; };
+		A8F628491ED3D031007F2D24 /* JRBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628431ED3D031007F2D24 /* JRBaseRequest.m */; };
+		A8F6284A1ED3D031007F2D24 /* JRUploadFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628461ED3D031007F2D24 /* JRUploadFormat.m */; };
+		A8F6284B1ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628481ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,11 +32,18 @@
 		09ED160B1DAB792C00CEB7FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09ED160E1DAB792C00CEB7FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09ED16101DAB792C00CEB7FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09ED16171DAB794300CEB7FE /* JRBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRBaseRequest.h; sourceTree = "<group>"; };
-		09ED16181DAB794300CEB7FE /* JRBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRBaseRequest.m; sourceTree = "<group>"; };
-		09ED16191DAB794300CEB7FE /* JRRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRequestHandler.h; sourceTree = "<group>"; };
-		09ED161A1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+JRCancellable.h"; sourceTree = "<group>"; };
-		09ED161B1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+JRCancellable.m"; sourceTree = "<group>"; };
+		3B4A010F47BCABB3E809C147 /* Pods_JRBaseRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JRBaseRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A83342E91ED40FD200B4DE63 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
+		A83342EB1ED419D800B4DE63 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		A8F628421ED3D031007F2D24 /* JRBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRBaseRequest.h; sourceTree = "<group>"; };
+		A8F628431ED3D031007F2D24 /* JRBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRBaseRequest.m; sourceTree = "<group>"; };
+		A8F628441ED3D031007F2D24 /* JRRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRequestHandler.h; sourceTree = "<group>"; };
+		A8F628451ED3D031007F2D24 /* JRUploadFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRUploadFormat.h; sourceTree = "<group>"; };
+		A8F628461ED3D031007F2D24 /* JRUploadFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRUploadFormat.m; sourceTree = "<group>"; };
+		A8F628471ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSessionTask+JRCancellable.h"; sourceTree = "<group>"; };
+		A8F628481ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSessionTask+JRCancellable.m"; sourceTree = "<group>"; };
+		E278CF3A1E2734A391A1D5BC /* Pods-JRBaseRequest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JRBaseRequest.release.xcconfig"; path = "Pods/Target Support Files/Pods-JRBaseRequest/Pods-JRBaseRequest.release.xcconfig"; sourceTree = "<group>"; };
+		F59CF7186A166A6D0AC18436 /* Pods-JRBaseRequest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JRBaseRequest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JRBaseRequest/Pods-JRBaseRequest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C274DBBCD7E611F1EED9687 /* Pods_JRBaseRequest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,8 +61,11 @@
 		09ED15F31DAB792C00CEB7FE = {
 			isa = PBXGroup;
 			children = (
+				A8F6283E1ED3D031007F2D24 /* Classes */,
 				09ED15FE1DAB792C00CEB7FE /* JRBaseRequest */,
 				09ED15FD1DAB792C00CEB7FE /* Products */,
+				1B9E355A87C8FFEB6243217D /* Pods */,
+				101302D913CED8468E7BFDE7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,7 +80,8 @@
 		09ED15FE1DAB792C00CEB7FE /* JRBaseRequest */ = {
 			isa = PBXGroup;
 			children = (
-				09ED16161DAB794300CEB7FE /* classes */,
+				A83342EB1ED419D800B4DE63 /* test.jpg */,
+				A83342E91ED40FD200B4DE63 /* test.png */,
 				09ED16021DAB792C00CEB7FE /* AppDelegate.h */,
 				09ED16031DAB792C00CEB7FE /* AppDelegate.m */,
 				09ED16051DAB792C00CEB7FE /* ViewController.h */,
@@ -87,16 +103,51 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		09ED16161DAB794300CEB7FE /* classes */ = {
+		101302D913CED8468E7BFDE7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				09ED16191DAB794300CEB7FE /* JRRequestHandler.h */,
-				09ED16171DAB794300CEB7FE /* JRBaseRequest.h */,
-				09ED16181DAB794300CEB7FE /* JRBaseRequest.m */,
-				09ED161A1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.h */,
-				09ED161B1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m */,
+				3B4A010F47BCABB3E809C147 /* Pods_JRBaseRequest.framework */,
 			);
-			path = classes;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1B9E355A87C8FFEB6243217D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F59CF7186A166A6D0AC18436 /* Pods-JRBaseRequest.debug.xcconfig */,
+				E278CF3A1E2734A391A1D5BC /* Pods-JRBaseRequest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A8F6283E1ED3D031007F2D24 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A8F6283F1ED3D031007F2D24 /* AFN */,
+				A8F628411ED3D031007F2D24 /* Base */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		A8F6283F1ED3D031007F2D24 /* AFN */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AFN;
+			sourceTree = "<group>";
+		};
+		A8F628411ED3D031007F2D24 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A8F628421ED3D031007F2D24 /* JRBaseRequest.h */,
+				A8F628431ED3D031007F2D24 /* JRBaseRequest.m */,
+				A8F628441ED3D031007F2D24 /* JRRequestHandler.h */,
+				A8F628451ED3D031007F2D24 /* JRUploadFormat.h */,
+				A8F628461ED3D031007F2D24 /* JRUploadFormat.m */,
+				A8F628471ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.h */,
+				A8F628481ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -106,9 +157,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09ED16131DAB792C00CEB7FE /* Build configuration list for PBXNativeTarget "JRBaseRequest" */;
 			buildPhases = (
+				92BFE896A4C57643EBC47360 /* [CP] Check Pods Manifest.lock */,
 				09ED15F81DAB792C00CEB7FE /* Sources */,
 				09ED15F91DAB792C00CEB7FE /* Frameworks */,
 				09ED15FA1DAB792C00CEB7FE /* Resources */,
+				57F570ED9E49A63F3BAD684A /* [CP] Embed Pods Frameworks */,
+				1667A822D18802B73B16557B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,12 +212,62 @@
 			buildActionMask = 2147483647;
 			files = (
 				09ED160F1DAB792C00CEB7FE /* LaunchScreen.storyboard in Resources */,
+				A83342EC1ED419D800B4DE63 /* test.jpg in Resources */,
 				09ED160C1DAB792C00CEB7FE /* Assets.xcassets in Resources */,
 				09ED160A1DAB792C00CEB7FE /* Main.storyboard in Resources */,
+				A83342EA1ED40FD200B4DE63 /* test.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1667A822D18802B73B16557B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JRBaseRequest/Pods-JRBaseRequest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57F570ED9E49A63F3BAD684A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JRBaseRequest/Pods-JRBaseRequest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		92BFE896A4C57643EBC47360 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		09ED15F81DAB792C00CEB7FE /* Sources */ = {
@@ -172,8 +276,9 @@
 			files = (
 				09ED16071DAB792C00CEB7FE /* ViewController.m in Sources */,
 				09ED16041DAB792C00CEB7FE /* AppDelegate.m in Sources */,
-				09ED161C1DAB794300CEB7FE /* JRBaseRequest.m in Sources */,
-				09ED161D1DAB794300CEB7FE /* NSURLSessionTask+JRCancellable.m in Sources */,
+				A8F6284B1ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m in Sources */,
+				A8F6284A1ED3D031007F2D24 /* JRUploadFormat.m in Sources */,
+				A8F628491ED3D031007F2D24 /* JRBaseRequest.m in Sources */,
 				09ED16011DAB792C00CEB7FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +391,7 @@
 		};
 		09ED16141DAB792C00CEB7FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F59CF7186A166A6D0AC18436 /* Pods-JRBaseRequest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 462J8VB29Y;
@@ -298,6 +404,7 @@
 		};
 		09ED16151DAB792C00CEB7FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E278CF3A1E2734A391A1D5BC /* Pods-JRBaseRequest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 462J8VB29Y;

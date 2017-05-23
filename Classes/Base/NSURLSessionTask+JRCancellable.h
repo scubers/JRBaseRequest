@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "JRRequestHandler.h"
 
-@interface NSURLSessionTask (JRCancellable) <JRCancellable>
+@interface NSURLSessionTask (JRCancellable) <JRRequestTask>
 
 @end

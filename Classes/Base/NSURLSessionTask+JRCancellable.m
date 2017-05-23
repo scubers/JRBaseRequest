@@ -14,4 +14,8 @@
     [self cancel];
 }
 
+- (void)jr_resume {
+    [self resume];
+}
+
 @end

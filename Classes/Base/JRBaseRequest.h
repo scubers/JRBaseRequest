@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JRRequestHandler.h"
+#import "JRUploadFormat.h"
 
 #define JRAssertObjectsNotNil(...) _JRAssertObjectsNotNil(__VA_ARGS__, [NSError errorWithDomain:@"Not_Error" code:0 userInfo:nil])
 
@@ -34,9 +35,11 @@ void _JRAssertObjectsNotNil(id first, ...);
 @property (nonatomic, strong, readonly) NSDictionary *params;///< 普通分割参数
 @property (nonatomic, strong, readonly) NSArray      *urlParams;///< Restful 风格参数
 
-@property (nonatomic, assign, readonly) BOOL isUpload;
-@property (nonatomic, copy  , readonly) void (^progressBlock)(NSProgress *progress);
-@property (nonatomic, copy  , readonly) void (^constructingBodyBlock)(id<JRMultipartFormData> formData);
+@property (nonatomic, copy  , readonly) JRRequestSuccessBlock successBlock;
+@property (nonatomic, copy  , readonly) JRRequestProgressBlock uploadProgressBlock;
+@property (nonatomic, copy  , readonly) JRRequestProgressBlock downloadProgressBlock;
+@property (nonatomic, copy  , readonly) JRRequestFailureBlock failureBlock;
+@property (nonatomic, copy  , readonly) NSArray<JRUploadFormat *> *(^constructingBodyBlock)();
 
 
 /**
@@ -81,18 +84,6 @@ void _JRAssertObjectsNotNil(id first, ...);
  */
 + (instancetype)DELETE:(NSString *)url, ...;
 
-
-#pragma mark - 创建文件上传请求
-
-/**
- *  创建文件上传请求
- *
- *  @param url
- *  @param params
- *  @param constructingBodyBlock
- */
-+ (instancetype)uploadFileForUrl:(NSString *)url params:(NSDictionary *)params constructingBody:(void (^)(id<JRMultipartFormData> formData))constructingBodyBlock;
-
 #pragma mark - 设置
 
 /**
@@ -101,7 +92,9 @@ void _JRAssertObjectsNotNil(id first, ...);
  *  @param progressBlock description
  *
  */
-- (instancetype)progressBlock:(void (^)(NSProgress *progress))progressBlock;
+- (instancetype)uploadProgress:(void (^)(NSProgress *progress))progressBlock;
+
+- (instancetype)downloadProgress:(void (^)(NSProgress *progress))progressBlock;
 
 /**
  *  设置参数
@@ -110,10 +103,16 @@ void _JRAssertObjectsNotNil(id first, ...);
  */
 - (instancetype)parameters:(NSDictionary *)parameters;
 
-#pragma mark - 发起请求
 
-- (id<JRCancellable>)startRequestSuccess:(void (^)(id<JRCancellable> task, id responseObject))success failure:(void(^)(id<JRCancellable> task, NSError *error))failure;
-- (id<JRCancellable>)startUploadFileSuccess:(void (^)(id<JRCancellable> task, id responseObject))success failure:(void(^)(id<JRCancellable> task, NSError *error))failure;
+- (instancetype)constructingBody:(NSArray<JRUploadFormat *> *(^)())block;
+
+#pragma mark - 创建任务
+
+- (id<JRRequestTask>)getTask;
+
+#pragma mark - 发起请求, 创建任务，并且执行
+
+- (id<JRRequestTask>)startRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure;
 
 #pragma mark - subclass override
 

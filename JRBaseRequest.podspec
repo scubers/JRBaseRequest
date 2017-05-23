@@ -11,8 +11,11 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "8.0"
     s.source                = { :git => "https://github.com/scubers/JRBaseRequest.git", :tag => "#{s.version}" }
 
+    s.source_files          = "Classes/Base/**/*.{h,m}"
+    s.public_header_files   = "Classes/Base/**/*.h"
 
-    s.source_files          = "JRBaseRequest/classes/**/*.{h,m}"
-    s.public_header_files   = "JRBaseRequest/classes/**/*.h"
+
+
+
 
 end
