@@ -19,23 +19,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    [[[AFNBaseRequest POST:@"http://192.168.31.44:8080/api/v1/fileUpload"
-                  params:@{
-//                           @"phone" : @"13924231242",
-                           @"userId" : @"1",
-                           @"orgId" : @"1",
-                           }]
-      constructingBody:^NSArray<JRUploadFormat *> *{
-//          return nil;
-          UIImage *image = [UIImage imageNamed:@"test.jpg"];
-          NSData *data = UIImagePNGRepresentation(image);
-          return @[[JRUploadFormat formatWithName:@"file" filename:@"file.jpg" data:data mimeType:@"image/jpg"]];
-      }]
-     startRequestSuccess:^(id<JRRequestTask> task, id responseObj) {
-
-    } failure:^(id<JRRequestTask> task, NSError *error) {
-
-    }];
+//    [[[AFNBaseRequest POST:@"http://192.168.31.44:8080/api/v1/fileUpload"
+//                  params:@{
+////                           @"phone" : @"13924231242",
+//                           @"userId" : @"1",
+//                           @"orgId" : @"1",
+//                           }]
+//      constructingBody:^NSArray<JRUploadFormat *> *{
+////          return nil;
+//          UIImage *image = [UIImage imageNamed:@"test.jpg"];
+//          NSData *data = UIImagePNGRepresentation(image);
+//          return @[[JRUploadFormat formatWithName:@"file" filename:@"file.jpg" data:data mimeType:@"image/jpg"]];
+//      }]
+//     startRequestSuccess:^(id<JRRequestTask> task, id responseObj) {
+//
+//    } failure:^(id<JRRequestTask> task, NSError *error) {
+//
+//    }];
 
     return YES;
 }
