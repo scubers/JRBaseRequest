@@ -27,6 +27,36 @@ void _JRAssertObjectsNotNil(id first, ...) {
     va_end(list);
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+@interface _JRMultipartFormDataImpl : NSObject <JRMultipartFormData>
+
+@property (nonatomic, strong) NSMutableArray<JRUploadFormat *> *formats;
+
+@end
+
+@implementation _JRMultipartFormDataImpl
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _formats = [NSMutableArray array];
+    }
+    return self;
+}
+
+- (void)appendData:(NSData *)data name:(NSString *)name fileName:(NSString *)fileName mimeType:(NSString *)mimeType {
+    JRUploadFormat *format = [JRUploadFormat formatWithName:name filename:fileName data:data mimeType:mimeType];
+    [_formats addObject:format];
+}
+
+@end
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 @interface JRBaseRequest ()
 
 
@@ -101,8 +131,10 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 #pragma mark - setting method
 
-- (instancetype)constructingBody:(NSArray<JRUploadFormat *> *(^)())block {
-    self->_constructingBodyBlock = block;
+- (instancetype)constructingData:(void (^)(id<JRMultipartFormData>))constructingBody {
+    _JRMultipartFormDataImpl *formData = [_JRMultipartFormDataImpl new];
+    constructingBody(formData);
+    self->_formats = formData.formats;
     return self;
 }
 
@@ -153,7 +185,7 @@ void _JRAssertObjectsNotNil(id first, ...) {
     return [self.handler taskWithType:self.requestType
                                   url:self.url
                            parameters:self.params
-                        uploadFormats:self.constructingBodyBlock ? self.constructingBodyBlock() : nil
+                        uploadFormats:self.formats
                        uploadProgress:self.uploadProgressBlock
                      downloadProgress:self.downloadProgressBlock
                               success:self.successBlock

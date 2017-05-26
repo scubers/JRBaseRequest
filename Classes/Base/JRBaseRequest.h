@@ -39,7 +39,12 @@ void _JRAssertObjectsNotNil(id first, ...);
 @property (nonatomic, copy  , readonly) JRRequestProgressBlock uploadProgressBlock;
 @property (nonatomic, copy  , readonly) JRRequestProgressBlock downloadProgressBlock;
 @property (nonatomic, copy  , readonly) JRRequestFailureBlock failureBlock;
-@property (nonatomic, copy  , readonly) NSArray<JRUploadFormat *> *(^constructingBodyBlock)();
+
+//@property (nonatomic, copy  , readonly) NSArray<JRUploadFormat *> *(^constructingBodyBlock)();
+
+@property (nonatomic, strong, readonly) NSArray<JRUploadFormat *> *formats;
+
+//@property (nonatomic, copy  , readonly) void (^constructingData)(id<JRMultipartFormData> formData);
 
 
 /**
@@ -108,7 +113,8 @@ void _JRAssertObjectsNotNil(id first, ...);
 - (instancetype)parameters:(NSDictionary *)parameters;
 
 
-- (instancetype)constructingBody:(NSArray<JRUploadFormat *> *(^)())block;
+- (instancetype)constructingData:(void (^)(id<JRMultipartFormData> formData))constructingBody;
+
 
 #pragma mark - 创建任务
 
