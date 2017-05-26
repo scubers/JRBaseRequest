@@ -92,9 +92,13 @@ void _JRAssertObjectsNotNil(id first, ...);
  *  @param progressBlock description
  *
  */
-- (instancetype)uploadProgress:(void (^)(NSProgress *progress))progressBlock;
+- (instancetype)uploadProgress:(JRRequestProgressBlock)progressBlock;
 
-- (instancetype)downloadProgress:(void (^)(NSProgress *progress))progressBlock;
+- (instancetype)downloadProgress:(JRRequestProgressBlock)progressBlock;
+
+- (instancetype)success:(JRRequestSuccessBlock)successBlock;
+
+- (instancetype)failure:(JRRequestFailureBlock)failureBlock;
 
 /**
  *  设置参数
@@ -111,6 +115,8 @@ void _JRAssertObjectsNotNil(id first, ...);
 - (id<JRRequestTask>)getTask;
 
 #pragma mark - 发起请求, 创建任务，并且执行
+
+- (id<JRRequestTask>)startRequest;
 
 - (id<JRRequestTask>)startRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure;
 

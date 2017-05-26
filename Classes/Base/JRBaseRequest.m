@@ -116,6 +116,16 @@ void _JRAssertObjectsNotNil(id first, ...) {
     return self;
 }
 
+- (instancetype)success:(JRRequestSuccessBlock)successBlock {
+    self->_successBlock = successBlock;
+    return self;
+}
+
+- (instancetype)failure:(JRRequestFailureBlock)failureBlock {
+    self->_failureBlock = failureBlock;
+    return self;
+}
+
 - (instancetype)parameters:(NSDictionary *)parameters {
     self->_params = parameters;
     return self;
@@ -123,10 +133,17 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 #pragma mark - request
 
+- (id<JRRequestTask>)startRequest {
+    return [self startRequestSuccess:nil failure:nil];
+}
+
 - (id<JRRequestTask>)startRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure {
-    self->_successBlock = success;
-    self->_failureBlock = failure;
-    
+    if (success) {
+        self->_successBlock = success;
+    }
+    if (failure) {
+        self->_failureBlock = failure;
+    }
     id<JRRequestTask> task = [self getTask];
     [task jr_resume];
     return task;
@@ -155,7 +172,7 @@ void _JRAssertObjectsNotNil(id first, ...) {
 #pragma mark - method should be override
 
 - (id<JRRequestHandler>)getHandler {
-    NSAssert(NO, @"在子类中实现本方法:%s", __PRETTY_FUNCTION__);
+    NSAssert(NO, @"在本类【%@】中实现本方法:%s", NSStringFromClass(self.class), __PRETTY_FUNCTION__);
     return nil;
 }
 
