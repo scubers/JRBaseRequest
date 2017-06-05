@@ -32,19 +32,24 @@ void _JRAssertObjectsNotNil(id first, ...);
 @property (nonatomic, strong) id<JRRequestHandler> handler;
 
 @property (nonatomic, strong, readonly) NSString     *url;
-@property (nonatomic, strong, readonly) NSDictionary *params;///< 普通分割参数
-@property (nonatomic, strong, readonly) NSArray      *urlParams;///< Restful 风格参数
+
+/// 普通分割参数
+@property (nonatomic, strong, readonly) NSDictionary *params;
+
+/// Restful 风格参数
+@property (nonatomic, strong, readonly) NSArray      *urlParams;
+
+/// 额外的请求头信息，基础请求头 @see -[getBaseHeaders];
+@property (nonatomic, strong, readonly) NSMutableDictionary *extraHeaders;
+
 
 @property (nonatomic, copy  , readonly) JRRequestSuccessBlock successBlock;
 @property (nonatomic, copy  , readonly) JRRequestProgressBlock uploadProgressBlock;
 @property (nonatomic, copy  , readonly) JRRequestProgressBlock downloadProgressBlock;
 @property (nonatomic, copy  , readonly) JRRequestFailureBlock failureBlock;
 
-//@property (nonatomic, copy  , readonly) NSArray<JRUploadFormat *> *(^constructingBodyBlock)();
-
 @property (nonatomic, strong, readonly) NSArray<JRUploadFormat *> *formats;
 
-//@property (nonatomic, copy  , readonly) void (^constructingData)(id<JRMultipartFormData> formData);
 
 
 /**
@@ -113,6 +118,21 @@ void _JRAssertObjectsNotNil(id first, ...);
 - (instancetype)parameters:(NSDictionary *)parameters;
 
 
+/**
+ 添加额外请求头信息
+
+ @param value value description
+ @param header header description
+ @return return value description
+ */
+- (instancetype)addValue:(NSString *)value forHeader:(NSString *)header;
+
+/**
+ 上传文件构建block
+
+ @param constructingBody constructingBody description
+ @return return value description
+ */
 - (instancetype)constructingData:(void (^)(id<JRMultipartFormData> formData))constructingBody;
 
 
@@ -135,6 +155,14 @@ void _JRAssertObjectsNotNil(id first, ...);
  @return return value description
  */
 - (id<JRRequestHandler>)getHandler;
+
+
+/**
+ 获取基础的请求头信息
+
+ @return return value description
+ */
+- (NSDictionary<NSString *, NSString *> *)getBaseHeaders;
 
 
 /**

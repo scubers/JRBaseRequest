@@ -163,6 +163,13 @@ void _JRAssertObjectsNotNil(id first, ...) {
     return self;
 }
 
+- (instancetype)addValue:(NSString *)value forHeader:(NSString *)header {
+    if (value) {
+        self.extraHeaders[header] = value;
+    }
+    return self;
+}
+
 #pragma mark - request
 
 - (id<JRRequestTask>)startRequest {
@@ -182,9 +189,18 @@ void _JRAssertObjectsNotNil(id first, ...) {
 }
 
 - (id<JRRequestTask>)getTask {
+
+    NSMutableDictionary *headers = self.extraHeaders.mutableCopy;
+    NSDictionary *baseHeader = [self getBaseHeaders];
+
+    if (baseHeader.count) {
+        [headers addEntriesFromDictionary:baseHeader];
+    }
+
     return [self.handler taskWithType:self.requestType
                                   url:self.url
                            parameters:self.params
+                              headers:headers
                         uploadFormats:self.formats
                        uploadProgress:self.uploadProgressBlock
                      downloadProgress:self.downloadProgressBlock
@@ -201,6 +217,15 @@ void _JRAssertObjectsNotNil(id first, ...) {
     return _handler;
 }
 
+@synthesize extraHeaders = _extraHeaders;
+
+- (NSMutableDictionary *)extraHeaders {
+    if (!_extraHeaders) {
+        _extraHeaders = [NSMutableDictionary dictionary];
+    }
+    return _extraHeaders;
+}
+
 #pragma mark - method should be override
 
 - (id<JRRequestHandler>)getHandler {
@@ -210,6 +235,10 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 - (NSString *)resolveUrl:(NSString *)oldUrl {
     return oldUrl;
+}
+
+- (NSDictionary<NSString *,NSString *> *)getBaseHeaders {
+    return nil;
 }
 
 #pragma mark - private method

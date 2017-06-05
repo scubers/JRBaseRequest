@@ -9,6 +9,7 @@ platform :ios, '8.0'
 target 'JRBaseRequest' do
 
     pod 'JRBaseRequest', :path => '.'
+    pod 'AFNetworking'
 #    pod 'JRSON', :path => '/Users/Jrwong/Documents/code/JRSON'
 #    pod 'MethodCopyer', :path => '/Users/Jrwong/Desktop/MethodCopyer'
 #    pod 'ObjectPool', '~> 1.0.0'

@@ -16,6 +16,7 @@
 		1C274DBBCD7E611F1EED9687 /* Pods_JRBaseRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B4A010F47BCABB3E809C147 /* Pods_JRBaseRequest.framework */; };
 		A83342EA1ED40FD200B4DE63 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = A83342E91ED40FD200B4DE63 /* test.png */; };
 		A83342EC1ED419D800B4DE63 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A83342EB1ED419D800B4DE63 /* test.jpg */; };
+		A856DE6A1EE4F1A7009FA064 /* AbstractHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A856DE681EE4F1A7009FA064 /* AbstractHttpSessionManager.m */; };
 		A8F628491ED3D031007F2D24 /* JRBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628431ED3D031007F2D24 /* JRBaseRequest.m */; };
 		A8F6284A1ED3D031007F2D24 /* JRUploadFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628461ED3D031007F2D24 /* JRUploadFormat.m */; };
 		A8F6284B1ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628481ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m */; };
@@ -35,6 +36,8 @@
 		3B4A010F47BCABB3E809C147 /* Pods_JRBaseRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JRBaseRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83342E91ED40FD200B4DE63 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		A83342EB1ED419D800B4DE63 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		A856DE681EE4F1A7009FA064 /* AbstractHttpSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractHttpSessionManager.m; sourceTree = "<group>"; };
+		A856DE691EE4F1A7009FA064 /* AbstractHttpSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractHttpSessionManager.h; sourceTree = "<group>"; };
 		A8F628421ED3D031007F2D24 /* JRBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRBaseRequest.h; sourceTree = "<group>"; };
 		A8F628431ED3D031007F2D24 /* JRBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRBaseRequest.m; sourceTree = "<group>"; };
 		A8F628441ED3D031007F2D24 /* JRRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRequestHandler.h; sourceTree = "<group>"; };
@@ -80,6 +83,8 @@
 		09ED15FE1DAB792C00CEB7FE /* JRBaseRequest */ = {
 			isa = PBXGroup;
 			children = (
+				A856DE691EE4F1A7009FA064 /* AbstractHttpSessionManager.h */,
+				A856DE681EE4F1A7009FA064 /* AbstractHttpSessionManager.m */,
 				A83342EB1ED419D800B4DE63 /* test.jpg */,
 				A83342E91ED40FD200B4DE63 /* test.png */,
 				09ED16021DAB792C00CEB7FE /* AppDelegate.h */,
@@ -278,6 +283,7 @@
 				09ED16041DAB792C00CEB7FE /* AppDelegate.m in Sources */,
 				A8F6284B1ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m in Sources */,
 				A8F6284A1ED3D031007F2D24 /* JRUploadFormat.m in Sources */,
+				A856DE6A1EE4F1A7009FA064 /* AbstractHttpSessionManager.m in Sources */,
 				A8F628491ED3D031007F2D24 /* JRBaseRequest.m in Sources */,
 				09ED16011DAB792C00CEB7FE /* main.m in Sources */,
 			);

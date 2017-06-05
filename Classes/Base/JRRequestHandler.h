@@ -65,20 +65,12 @@ typedef void(^JRRequestFailureBlock)(id<JRRequestTask> task, NSError *error);
 - (id<JRRequestTask>)taskWithType:(JRRequestType)type
                               url:(NSString *)url
                        parameters:(NSDictionary *)parameters
+                          headers:(NSDictionary *)headers
                     uploadFormats:(NSArray<JRUploadFormat *> *)uploads
                    uploadProgress:(JRRequestProgressBlock)uploadProgress
                  downloadProgress:(JRRequestProgressBlock)downloadProgress
                           success:(JRRequestSuccessBlock)success
                           failure:(JRRequestFailureBlock)failure;
-
-
-/**
- 如需要移除某个key，请设置 @{key : [NSNull null]}
-
- @param headers headers description
- */
-- (NSDictionary *)getHeaders;
-
 
 
 @end
