@@ -14,6 +14,8 @@
 
 void _JRAssertObjectsNotNil(id first, ...);
 
+
+
 /**
  *  抽象类，不能直接使用，请子类化本类，然后实现 handler 的 getter 方法
  */
@@ -48,9 +50,9 @@ void _JRAssertObjectsNotNil(id first, ...);
 @property (nonatomic, copy  , readonly) JRRequestProgressBlock downloadProgressBlock;
 @property (nonatomic, copy  , readonly) JRRequestFailureBlock failureBlock;
 
+@property (nonatomic, copy  , readonly) JRRequestMapBlock resultMapBlock;
+
 @property (nonatomic, strong, readonly) NSArray<JRUploadFormat *> *formats;
-
-
 
 /**
  可变参数为restful风格的url参数
@@ -110,6 +112,8 @@ void _JRAssertObjectsNotNil(id first, ...);
 
 - (instancetype)failure:(JRRequestFailureBlock)failureBlock;
 
+- (instancetype)resultMap:(JRRequestMapBlock)mapBlock;
+
 /**
  *  设置参数
  *
@@ -142,9 +146,9 @@ void _JRAssertObjectsNotNil(id first, ...);
 
 #pragma mark - 发起请求, 创建任务，并且执行
 
-- (id<JRRequestTask>)startRequest;
+- (id<JRRequestTask>)executeRequest;
 
-- (id<JRRequestTask>)startRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure;
+- (id<JRRequestTask>)executeRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure;
 
 #pragma mark - subclass override
 

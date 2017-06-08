@@ -158,6 +158,11 @@ void _JRAssertObjectsNotNil(id first, ...) {
     return self;
 }
 
+- (instancetype)resultMap:(JRRequestMapBlock)mapBlock {
+    _resultMapBlock = mapBlock;
+    return self;
+}
+
 - (instancetype)parameters:(NSDictionary *)parameters {
     self->_params = parameters;
     return self;
@@ -172,11 +177,11 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 #pragma mark - request
 
-- (id<JRRequestTask>)startRequest {
-    return [self startRequestSuccess:nil failure:nil];
+- (id<JRRequestTask>)executeRequest {
+    return [self executeRequestSuccess:nil failure:nil];
 }
 
-- (id<JRRequestTask>)startRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure {
+- (id<JRRequestTask>)executeRequestSuccess:(JRRequestSuccessBlock)success failure:(JRRequestFailureBlock)failure {
     if (success) {
         self->_successBlock = success;
     }
@@ -190,13 +195,23 @@ void _JRAssertObjectsNotNil(id first, ...) {
 
 - (id<JRRequestTask>)getTask {
 
+    // 配置请求头
     NSMutableDictionary *headers = self.extraHeaders.mutableCopy;
     NSDictionary *baseHeader = [self getBaseHeaders];
-
     if (baseHeader.count) {
         [headers addEntriesFromDictionary:baseHeader];
     }
 
+    // 添加mapblock
+    JRRequestMapBlock mapBlock = self.resultMapBlock;
+    if (mapBlock) {
+        JRRequestSuccessBlock success = self.successBlock;
+        [self success:^(id<JRRequestTask> task, id responseObj) {
+            success(task, mapBlock(responseObj));
+        }];
+    }
+
+    // 创建任务
     return [self.handler taskWithType:self.requestType
                                   url:self.url
                            parameters:self.params

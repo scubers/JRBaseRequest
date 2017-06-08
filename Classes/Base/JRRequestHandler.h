@@ -52,6 +52,7 @@ typedef NS_ENUM(NSUInteger, JRRequestType) {
 typedef void(^JRRequestSuccessBlock)(id<JRRequestTask> task, id responseObj);
 typedef void(^JRRequestProgressBlock)(NSProgress *progress);
 typedef void(^JRRequestFailureBlock)(id<JRRequestTask> task, NSError *error);
+typedef id(^JRRequestMapBlock)(id value);
 
 
 
