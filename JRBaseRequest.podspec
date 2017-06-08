@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name                  = "JRBaseRequest"
-    s.version="1.6.0"
+    s.version="1.6.1"
     s.summary               = "A network request protocol, its design to work for other network lib"
 
     s.homepage              = "https://github.com/scubers"
