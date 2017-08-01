@@ -17,7 +17,7 @@
 		A83342EA1ED40FD200B4DE63 /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = A83342E91ED40FD200B4DE63 /* test.png */; };
 		A83342EC1ED419D800B4DE63 /* test.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A83342EB1ED419D800B4DE63 /* test.jpg */; };
 		A856DE6A1EE4F1A7009FA064 /* AbstractHttpSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A856DE681EE4F1A7009FA064 /* AbstractHttpSessionManager.m */; };
-		A8F628491ED3D031007F2D24 /* JRBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628431ED3D031007F2D24 /* JRBaseRequest.m */; };
+		A8F628491ED3D031007F2D24 /* JRBaseRequestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628431ED3D031007F2D24 /* JRBaseRequestObject.m */; };
 		A8F6284A1ED3D031007F2D24 /* JRUploadFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628461ED3D031007F2D24 /* JRUploadFormat.m */; };
 		A8F6284B1ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m in Sources */ = {isa = PBXBuildFile; fileRef = A8F628481ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m */; };
 /* End PBXBuildFile section */
@@ -36,10 +36,11 @@
 		3B4A010F47BCABB3E809C147 /* Pods_JRBaseRequest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JRBaseRequest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A83342E91ED40FD200B4DE63 /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 		A83342EB1ED419D800B4DE63 /* test.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test.jpg; sourceTree = "<group>"; };
+		A841A71C1F3098E500CB4009 /* JRBaseRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JRBaseRequest.h; sourceTree = "<group>"; };
 		A856DE681EE4F1A7009FA064 /* AbstractHttpSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractHttpSessionManager.m; sourceTree = "<group>"; };
 		A856DE691EE4F1A7009FA064 /* AbstractHttpSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractHttpSessionManager.h; sourceTree = "<group>"; };
-		A8F628421ED3D031007F2D24 /* JRBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRBaseRequest.h; sourceTree = "<group>"; };
-		A8F628431ED3D031007F2D24 /* JRBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRBaseRequest.m; sourceTree = "<group>"; };
+		A8F628421ED3D031007F2D24 /* JRBaseRequestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRBaseRequestObject.h; sourceTree = "<group>"; };
+		A8F628431ED3D031007F2D24 /* JRBaseRequestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRBaseRequestObject.m; sourceTree = "<group>"; };
 		A8F628441ED3D031007F2D24 /* JRRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRRequestHandler.h; sourceTree = "<group>"; };
 		A8F628451ED3D031007F2D24 /* JRUploadFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRUploadFormat.h; sourceTree = "<group>"; };
 		A8F628461ED3D031007F2D24 /* JRUploadFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRUploadFormat.m; sourceTree = "<group>"; };
@@ -128,24 +129,17 @@
 		A8F6283E1ED3D031007F2D24 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A8F6283F1ED3D031007F2D24 /* AFN */,
 				A8F628411ED3D031007F2D24 /* Base */,
+				A841A71C1F3098E500CB4009 /* JRBaseRequest.h */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		A8F6283F1ED3D031007F2D24 /* AFN */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = AFN;
 			sourceTree = "<group>";
 		};
 		A8F628411ED3D031007F2D24 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				A8F628421ED3D031007F2D24 /* JRBaseRequest.h */,
-				A8F628431ED3D031007F2D24 /* JRBaseRequest.m */,
+				A8F628421ED3D031007F2D24 /* JRBaseRequestObject.h */,
+				A8F628431ED3D031007F2D24 /* JRBaseRequestObject.m */,
 				A8F628441ED3D031007F2D24 /* JRRequestHandler.h */,
 				A8F628451ED3D031007F2D24 /* JRUploadFormat.h */,
 				A8F628461ED3D031007F2D24 /* JRUploadFormat.m */,
@@ -284,7 +278,7 @@
 				A8F6284B1ED3D031007F2D24 /* NSURLSessionTask+JRCancellable.m in Sources */,
 				A8F6284A1ED3D031007F2D24 /* JRUploadFormat.m in Sources */,
 				A856DE6A1EE4F1A7009FA064 /* AbstractHttpSessionManager.m in Sources */,
-				A8F628491ED3D031007F2D24 /* JRBaseRequest.m in Sources */,
+				A8F628491ED3D031007F2D24 /* JRBaseRequestObject.m in Sources */,
 				09ED16011DAB792C00CEB7FE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 HHJR. All rights reserved.
 //
 
-#import "JRBaseRequest.h"
+#import "JRBaseRequestObject.h"
 
 void _JRAssertObjectNotNil(id value, NSString *msg) {
     if (!value) {
