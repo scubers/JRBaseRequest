@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
     s.name                  = "JRBaseRequest"
-    s.version="1.7.2"
+    s.version="1.7.3"
     s.summary               = "A network request protocol, its design to work for other network lib"
 
     s.homepage              = "https://github.com/scubers"
@@ -11,8 +11,8 @@ Pod::Spec.new do |s|
     s.ios.deployment_target = "8.0"
     s.source                = { :git => "https://github.com/scubers/JRBaseRequest.git", :tag => "#{s.version}" }
 
-    s.source_files          = "Classes/Base/**/*.{h,m}"
-    s.public_header_files   = "Classes/Base/**/*.h"
+    s.source_files          = "Classes/**/*.{h,m}"
+    s.public_header_files   = "Classes/**/*.h"
 
 
 
